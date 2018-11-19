@@ -1,0 +1,110 @@
+body {
+  background-position: fixed;
+  background-size: cover 
+}
+
+.card {
+  background-color:  rgb(171, 250, 220);
+}
+.form-style{
+  padding: 20px 20px 0px 20px
+}
+#greeting {
+      font-family: 'Special Elite', cursive;
+  color:  rgb(253, 251, 147);
+      text-shadow: 2px 2px 4px #333131;
+  font-weight: bold;
+  font-size: 60px
+
+}
+#quote {
+  padding-top: 20px;
+  font-family: 'Special Elite', cursive;
+  color:  rgb(253, 251, 147);
+      text-shadow: 2px 2px 4px #333131;
+  font-weight: bold
+
+}
+
+#quote-body {
+    font-size: 25px;
+}
+#quote-author {
+    font-size: 17px;
+}
+#weather {
+    font-family: 'Special Elite', cursive;
+  color:  rgb(253, 251, 147);
+      text-shadow: 2px 2px 3px #333131;
+        font-weight: bold;
+
+}
+#city {
+          font-size: 17px
+}
+#ftemp {
+          font-size: 35px
+}
+#main {
+  font-size: 15px
+}
+
+input[type=submit] {
+  border-radius: 3px;
+  border: 1px solid  #333131;
+    color:  #333131;
+    width: 80px;
+    height:25px;
+font-family: 'Architects Daughter', cursive;
+font-size: 15px;
+    outline: none;
+    background:  rgb(171, 250, 220);
+  
+}
+input[type=submit]:hover {
+  border-radius: 3px;
+    border: 1px solid  #333131;
+    color:  white;
+    width: 80px;
+    height:25px;
+font-family: 'Architects Daughter', cursive;
+font-size: 15px;
+    outline: none;
+    background: #333131 ;
+  
+}
+input[type=text] {
+font-family: 'Architects Daughter', cursive;
+font-size: 15px;
+font-weight: bold;
+  background:    rgb(171, 250, 220);
+  outline: none;
+border: none;
+}
+input[type=text]:focus {
+outline: none;
+border: none;
+}
+#todo-list{
+font-family: 'Architects Daughter', cursive;
+font-size: 15px;
+font-weight: bold;
+max-width: 25ch;
+word-wrap: break-word
+
+}
+#clock{
+  
+    font-family: 'Special Elite', cursive;
+    color:  rgb(253, 251, 147);
+    text-shadow: 2px 2px 3px #333131;
+    font-weight: bold;
+    font-size: 100px
+}
+
+.list-title {
+font-family: 'Architects Daughter', cursive;
+    color:  #333131;
+    font-weight: bold;
+
+}

@@ -1,7 +1,7 @@
 
-
+// @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/YOURNAME/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/ariana/todos/',
 	timeout: 3000
 });
 
@@ -10,45 +10,50 @@ function logError(e) {
 }
 
 
-let todoList = []
+let _todoList = []
+let _todo = { _todoList }
 
 export default class TodoService {
-
+	get todoList() {
+		return _todoList
+	}
+	get todo() {
+		return _todo
+	}
 	getTodos(draw) {
 		console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
+				_todoList = res.data.data
+				draw(_todoList)
 
 			})
 			.catch(logError)
 	}
 
-	addTodo(todo) {
-		// WHAT IS THIS FOR???
+	addTodo(todo, getTodos) {
 		todoApi.post('', todo)
-			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-
-			})
-			.catch(logError)
-	}
-
-	toggleTodoStatus(todoId) {
-		// MAKE SURE WE THINK THIS ONE THROUGH
-		//STEP 1: Find the todo by its index **HINT** todoList
-
-		var todo = {} ///MODIFY THIS LINE
-
-		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-		todoApi.put(todoId, todo)
 			.then(function (res) {
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				_todoList = res.data.data
+				getTodos()
 			})
 			.catch(logError)
 	}
 
-	removeTodo() {
-		// Umm this one is on you to write.... The method is a DELETE
+	toggleTodoStatus(_id, getTodos) {
+		todoApi.put(`${_id}`)
+			.then(function (res) {
+				getTodos()
+			})
+			.catch(logError)
+	}
 
+	removeTodo(todo, draw) {
+		todoApi.delete(todo)
+			.then(res => {
+				draw()
+			})
+			.catch(logError)
 	}
 
 }

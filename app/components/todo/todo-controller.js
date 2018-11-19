@@ -1,10 +1,12 @@
 import TodoService from "./todo-service.js";
 
-
-
 var todoService = new TodoService
 
 // Use this getTodos function as your callback for all other edits
+function showTodos() {
+	todoService.getTodos(draw)
+}
+showTodos()
 function getTodos() {
 	//FYI DONT EDIT ME :)
 	todoService.getTodos(draw)
@@ -13,8 +15,15 @@ function getTodos() {
 function draw(todos) {
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
-	var template = ''
+	let template = ''
 	//DONT FORGET TO LOOP
+	todos.forEach(todo => {
+		template += `
+		<p><i class="fas fa-heart fas-1x"></i> ${todo.description}</p>
+	<p class=" d-flex justify-content-center"><button class="btn btn-outline-dark btn-sm" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button></p>
+		`
+	});
+	document.getElementById('todo-list').innerHTML = template + `${todos.length} task(s) left`
 }
 
 
@@ -35,8 +44,12 @@ export default class TodoController {
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
+			description: form.newTodo.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+
 		}
+
+		form.reset()
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
@@ -45,18 +58,16 @@ export default class TodoController {
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
-	toggleTodoStatus(todoId) {
+	toggleTodoStatus(_id) {
 		// asks the service to edit the todo status
-		todoService.toggleTodoStatus(todoId, getTodos)
+		todoService.toggleTodoStatus(_id, getTodos)
 		// YEP THATS IT FOR ME
 	}
 
-	removeTodo(todoId) {
+	removeTodo(_id) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(_id, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
-
-
 
 }
