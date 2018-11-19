@@ -6,7 +6,7 @@ import TimeController from "./components/time/time-controller.js"
 
 
 // HEY WHERE ARE ALL OF YOUR CONTROLLERS??
-class app {
+class App {
   constructor() {
     this.controllers = {
       weatherController: new WeatherController(),
@@ -27,4 +27,4 @@ class app {
 
 
 // @ts-ignore
-window.app = new app()  
+window.acode.app = new app()  
