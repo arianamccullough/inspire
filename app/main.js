@@ -27,4 +27,4 @@ class App {
 
 
 // @ts-ignore
-window.acode.app = new App()  
+window.app = new App()  
