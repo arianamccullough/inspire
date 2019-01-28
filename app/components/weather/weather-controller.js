@@ -15,12 +15,10 @@ function draw(weather) {
 
 export default class WeatherController {
 	constructor() {
-		//this will fire off get weather right away
 		this.getWeather()
 	}
 	getWeather() {
 		_weatherService.getWeather(draw)
-		//What can you do with this weather object?
 	}
 }
 

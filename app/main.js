@@ -5,7 +5,6 @@ import QuoteController from "./components/quote/quote-controller.js";
 import TimeController from "./components/time/time-controller.js"
 
 
-// HEY WHERE ARE ALL OF YOUR CONTROLLERS??
 class App {
   constructor() {
     this.controllers = {
@@ -19,10 +18,6 @@ class App {
     }
   }
 }
-
-
-
-
 
 
 

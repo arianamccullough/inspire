@@ -23,7 +23,7 @@ export default class TodoService {
 	getTodos(draw) {
 		console.log("Getting the Todo List")
 		todoApi.get('')
-			.then((res) => { // <-- WHY IS THIS IMPORTANT????
+			.then((res) => {
 				_todoList = res.data.data
 				draw(_todoList)
 
